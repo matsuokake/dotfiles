@@ -25,7 +25,9 @@ let &t_ti.="\e[1 q" "カーソルの形状をデフォルトにする
 let &t_SI.="\e[5 q" "カーソルの形状をデフォルトにする
 let &t_EI.="\e[1 q" "カーソルの形状をデフォルトにする
 let &t_te.="\e[0 q" "カーソルの形状をデフォルトにする
-set clipboard=unnamed,autoselect "クリップボードにコピー可能にする
+
+"set clipboard&    "クリップボードにコピー可能にする
+"set clipboard^=unnamedplus
 
 "===== 検索設定 =====
 set ignorecase "大文字、小文字の区別をしない
@@ -35,66 +37,21 @@ set hlsearch "検索した文字を強調
 set incsearch "インクリメンタルサーチを有効にする
 "ESC連打でハイライト解除"
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
-
+"
 "===== マウス設定 =====
 set mouse=a
 set ttymouse=xterm2
 
 
-"===== dein.vimのスクリプト ====
-if &compatible
-  set nocompatible
-endif
+"=====pathogenの設定=====
+execute pathogen#infect()
 
-" dein.vimインストール時に指定したディレクトリを指定
-let s:dein_dir = expand('~/.cache/dein')
-
-" dein.vimの実体があるディレクトリをセット（指定）
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-" dein.vimが存在していない場合はgithubからclone
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
-
-" deinの起動
-if dein#load_state(s:dein_dir)
- call dein#begin(s:dein_dir)
-
- " tomlファイル（使用するプラグインのリストが記述されているファイル）の場所を指定
- let g:rc_dir = expand('~/.vim/dein') "<- dein.toml dein_lazy.toml を読み込むディレクトリ
- let s:toml = g:rc_dir . '/dein.toml'
- let s:lazy_toml = g:rc_dir . '/dein_lazy.toml' "<- dein_lazy.toml を使う場合はコメント解除
-
- " tomlファイルを読み込む
- call dein#load_toml(s:toml, {'lazy': 0})
- call dein#load_toml(s:lazy_toml, {'lazy': 1}) "<- dein_lazy.toml を使う場合はコメント解除
-
-  "設定の終了
-  call dein#end()
-  call dein#save_state()
-endif
-
-"Required
+"=====nerdtreeの設定=====
+call pathogen#infect()
+syntax on
 filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-"====dein.vimのスクリプト終了====
-
-"====NERDTreeの設定====
 "Ctrl + e でTreeを表示・非表示
 map <C-e> :NERDTreeToggle<CR> 
-
-"====vim-clangの設定====
-let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 
 "====vim-airlineの設定
 let g:airline_theme = 'molokai'
@@ -107,3 +64,4 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1 "tabの部分に番号を�
 " highlight LineNr ctermbg=none
 " highlight Folded ctermbg=none
 " highlight EndOfBuffer ctermbg=none 
+
