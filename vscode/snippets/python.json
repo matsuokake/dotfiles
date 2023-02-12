@@ -1,0 +1,21 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	"argparse": {
+		"prefix": "argparse",
+		"body": [
+			"import argparse",
+			"import sys",
+			"argparser = argparse.ArgumentParser(description='')",
+			"argparser.add_argument('', type=str, action='store', help = '')",
+			"argparser.add_argument('', nargs='?', action='store', type=argparse.FileType('r'), default=sys.stdin, help ='(pipeでも渡せる)')",
+			"mutual = argparser.add_mutually_exclusive_group(required=True)",
+			"mutual.add_argument('--txt', type=str, action='store', help = '')",
+			"mutual.add_argument('--word', type=str, action='store', help = '')",
+			"args = argparser.parse_args()"
+		],
+		"description": "template of argparser"
+	}
+}

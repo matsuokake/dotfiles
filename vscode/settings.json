@@ -1,0 +1,157 @@
+{
+    "terminal.external.osxExec": "iTerm.app",
+    "workbench.statusBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "editor.fontFamily": "Osaka-Mono,Monaco, Menlo,'Courier New', monospace",
+    "editor.fontSize": 17,
+
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "vim.easymotion": true,
+
+    "files.trimTrailingWhitespace": true,
+    "editor.minimap.enabled": false,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/.rvm/**":true,
+        "**/node_modules/**": true,
+        "**/Library/**":true,
+        "**/GoogleDrive/**":true,
+        "**/Pictures/**":true,
+    },
+    "editor.renderWhitespace": "all",
+    "python.linting.flake8Enabled": false,
+    "python.linting.mypyEnabled": false,
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.pylamaEnabled": false,
+    "python.linting.pylintEnabled": false,
+    "terminal.integrated.fontSize": 15,
+    "workbench.iconTheme": "vscode-icons",
+    //background
+    "backgroundCover.enabled": true,
+    "backgroundCover.opacity": 0.4,
+    "backgroundCover.imagePath": "/Users/matsuoka/Documents/vscode-bg/bg.jpg",
+    "workbench.startupEditor": "newUntitledFile",
+    "breadcrumbs.enabled": true,
+    "editor.renderLineHighlight":"all",
+    "editor.renderControlCharacters": true,
+    "zenMode.hideStatusBar": false,
+    "workbench.activityBar.visible": true,
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "GitHub Dark",
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#0099ff"
+    },
+    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YmFzaWM7YXJyb3dzMjtjbGlwYXJ0O2Zsb3djaGFydDtlcjt1bWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjpcIjI0MFwiLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODI3LFwiaGVpZ2h0XCI6MTE2OX0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2QwZDBkMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "python.languageServer": "Default",
+    "python.defaultInterpreterPath": "/Users/matsuoka/.pyenv/versions/3.7.4/bin/python",
+    "editor.largeFileOptimizations": false,
+    //R path
+    "r.rterm.linux": "/data2/matsuoka/tools/miniconda3/envs/works/bin/R",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "editor.cursorStyle": "line",
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+    "security.workspace.trust.untrustedFiles": "open",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "remote.SSH.remotePlatform": {
+        "gred6": "linux",
+        "red6": "linux",
+        "violet1": "linux",
+        "red4": "linux"
+    },
+    "remote.SSH.useLocalServer": false,
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "rainbow1",
+                "settings": {
+                   "foreground": "#fc6e91",
+                }
+            },
+            {
+                "scope": "keyword.rainbow2",
+                "settings": {
+                   "foreground": "#8fe29a",
+                //    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "entity.name.function.rainbow3",
+                "settings": {
+                   "foreground": "#c0b46a",
+                //    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "comment.rainbow4",
+                "settings": {
+                   "foreground": "#0082C8",
+                //    "fontStyle": "underline"
+                }
+            },
+            {
+                "scope": "string.rainbow5",
+                "settings": {
+                   "foreground": "#c26f6f",
+                }
+            },
+            {
+                "scope": "variable.parameter.rainbow6",
+                "settings": {
+                   "foreground": "#9fd8d8",
+                //    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "constant.numeric.rainbow7",
+                "settings": {
+                   "foreground": "#dd6dd7",
+                //    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "entity.name.type.rainbow8",
+                "settings": {
+                   "foreground": "#0badad",
+                //    "fontStyle": "underline"
+                }
+            },
+            {
+                "scope": "markup.bold.rainbow9",
+                "settings": {
+                   "foreground": "#bd723c",
+                   "fontStyle": ""
+                }
+            },
+            {
+                "scope": "invalid.rainbow10",
+                "settings": {
+                   "foreground": "#9d63e9",
+                }
+            }
+        ]
+    },
+    "vscode-pets.position": "explorer",
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false
+    },
+}

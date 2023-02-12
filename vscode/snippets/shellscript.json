@@ -1,0 +1,134 @@
+{
+	// Place your snippets for shellscript here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	"minimap2": {
+		"prefix": "minimap2",
+		"body": [
+			"export PATH=\"/data2/mochimaru/tools/minimap2-2.24_x64-linux/:\\$PATH\"",
+			"minimap2 -t $5 -c${1:x asm5} $2 $3 > $4.paf",
+		],
+		"description": "use minimap2"
+	},
+	"blastTarget2bed": {
+		"prefix": "blastTarget2bed",
+		"body": [
+			"awk -F \"\\t\" 'BEGIN{OFS=\"\\t\"}{if(\\$10>\\$9){print \\$2,\\$9-1,\\$10}else{print \\$2,\\$10-1,\\$9}}' $1.tsv"
+		],
+		"description": "blast format to bed"
+	},
+	"bedtools_path": {
+		"prefix": "bedtools_path",
+		"body": [
+			"export PATH=\"/data2/matsuoka/tools/bedtools-v2.30.0/bin:\\$PATH\""
+		],
+		"description": "bedtools path"
+	},
+	"mafft_path": {
+		"prefix": "mafft_path",
+		"body": [
+			"export PATH=\"/data2/matsuoka/tools/mafft-7.490-with-extensions/bin:\\$PATH\""
+		],
+		"description": "mafft path"
+	},
+	"paf2bed": {
+		"prefix": "paf2bed",
+		"body": [
+			"awk -F \"\\t\" 'BEGIN{OFS=\"\\t\"}{print \\$6,\\$8,\\$9}' $1.paf"
+		],
+		"description": "paf2bed"
+	},
+	"seqkit_replace": {
+		"prefix": "seqkit-replace",
+		"body": [
+			"seqkit replace -p '(.+)' -r 'To_\\$1'"
+		],
+		"description": "seqkit-replace"
+	},
+	"awk_parse_gff": {
+		"prefix": "awk_parse_gff",
+		"body": [
+			"awk -F \"\\t\" 'BEGIN{OFS=\"\\t\"}{$1}'"
+		],
+		"description": "parse gff use awk"
+	},
+	"seqkit_path": {
+		"prefix": "seqkit_path",
+		"body": [
+			"export PATH=\"/data2/matsuoka/tools/seqkit_v2.1.0:\\$PATH\""
+		],
+		"description": "seqkit path"
+	},
+	"blast_path": {
+		"prefix": "blast_path",
+		"body": [
+			"export PATH=\"/data2/mochimaru/tools/ncbi-blast-2.11.0+/bin:\\$PATH\""
+		],
+		"description": "blast path"
+	},
+	"seqkit_grep_subseq": {
+		"prefix": "seqkit_grep_subseq",
+		"body": [
+			"seqkit grep -rp \"$1\" $2 | seqkit subseq -r $3:$4 > "
+		],
+		"description": "seqkit grep and subseq"
+	},
+	"nucmer-maxmatch": {
+		"prefix": "nucmer_maxmatch",
+		"body": [
+			"nucmer --maxmatch --nosimplify --prefix \\$p -t $3 $1 $2",
+			"mummerplot --color --postscript --large -p \\$p \\${p}.delta",
+			"python /data2/matsuoka/works/scripts/dotplot/modify_gp_file.py --xscale 50000 --yscale 50000 --xrotate 0 \\${p}.gp",
+			"python /data2/matsuoka/works/scripts/dotplot/make_range_for_gp.py self_alignment/filt.txt --xmax 245791 --rect > gp.txt",
+			"python /data2/matsuoka/works/scripts/dotplot/add_txt_to_gp.py \\${p}.gp gp.txt",
+			"rm gp.txt",
+			"gnuplot \\${p}.gp",
+			"ps2pdf \\${p}.ps",
+		],
+		"description": "nucmer"
+	},
+	"nucmer_path": {
+		"prefix": "nucmer_path",
+		"body": [
+			"export PATH=\"/data2/matsuoka/tools/mummer-4.0.0rc1/bin:\\$PATH\""
+		],
+		"description": "nucmer path"
+	},
+	"blastn-nodb": {
+		"prefix": "blastn_nodb",
+		"body": [
+			"blastn -task blastn -num_threads \\$t -subject \\$ref -query \\$qry -outfmt \"6 std qlen slen\" > out.tsv"
+		],
+		"description": "blastn"
+	},
+	"amami_fasta": {
+		"prefix": "amami_fasta",
+		"body": [
+			"/data2/mochimaru/works/Tokudaia/assembly/Amami/20210924_Canu_v2.1.1_hetero/Omni-C/3D-DNA_add_rescued_hap2/3D-DNA_review_final/replace/Amami_Final.fasta"
+		],
+		"description": "amami_genome path"
+	},
+	"tokunoshima_fasta": {
+		"prefix": "tokunoshima_fasta",
+		"body": [
+			"/data2/matsuoka/works/Tokudaia/assembly/Tokunoshima/20211015_Canu_v2.1.1_hetero/Hi-C/3D-DNA_add_rescued_hap2/3D-DNA_review_final/rename/Tokunoshima_Final.fasta"
+		],
+		"description": "tokunoshima_genome path"
+	},
+	"okinawa_fasta": {
+		"prefix": "okinawa_fasta",
+		"body": [
+			"/data2/mochimaru/works/Tokudaia/assembly/Okinawa/20211019_Canu_v2.1.1_hetero/Hi-C/3D-DNA_change_param2/3D-DNA_review_final/rename/Okinawa_Final.fasta"
+		],
+		"description": "okinawa_genome path"
+	},
+	"fasta_dir": {
+		"prefix": "fasta_dir",
+		"body": [
+			"/data2/matsuoka/works/Tokudaia/assembly/final_fasta"
+		],
+		"description": "Tokudaia_fasta_dir"
+	}
+}
