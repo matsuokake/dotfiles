@@ -7,7 +7,7 @@ set visualbell "ビープ音を視覚表示
 set laststatus=2 "ステータスを表示
 set ruler "カーソル位置を表示
 syntax on "コードに色をつける
-colorscheme molokai
+colorscheme ghdark
 
 "===== 文字、カーソル設定 =====
 set fenc=utf-8 "文字コードを指定
@@ -25,6 +25,8 @@ let &t_ti.="\e[1 q" "カーソルの形状をデフォルトにする
 let &t_SI.="\e[5 q" "カーソルの形状をデフォルトにする
 let &t_EI.="\e[1 q" "カーソルの形状をデフォルトにする
 let &t_te.="\e[0 q" "カーソルの形状をデフォルトにする
+imap <C-b> <Left>
+imap <C-f> <Right>
 
 "set clipboard&    "クリップボードにコピー可能にする
 "set clipboard^=unnamedplus
@@ -43,22 +45,26 @@ set mouse=a
 set ttymouse=xterm2
 
 
-"=====pathogenの設定=====
-execute pathogen#infect()
+"=====vim plugの設定=====
+call plug#begin()
+Plug 'wojciechkepka/vim-github-dark'
+Plug 'cohama/lexima.vim'
+Plug 'lambdalisue/fern.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
 
-"=====nerdtreeの設定=====
-call pathogen#infect()
-syntax on
-filetype plugin indent on
-"Ctrl + e でTreeを表示・非表示
-map <C-e> :NERDTreeToggle<CR> 
+"=====fernの設定=====
+" Ctrl+nでファイルツリーを表示/非表示する
+nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 
 "====vim-airlineの設定
 let g:airline_theme = 'molokai'
-let g:airline#extensions#tabline#enabled = 1 "上の部分にも色を付ける
-let g:airline#extensions#tabline#buffer_idx_mode = 1 "tabの部分に番号をつける
+" let g:airline#extensions#tabline#enabled = 1 "上の部分にも色を付ける
+" let g:airline#extensions#tabline#buffer_idx_mode = 1 "tabの部分に番号をつける
 
-" "====背景を投下させる設定====
+" "====背景を透過させる設定====
 " highlight Normal ctermbg=none
 " highlight NonText ctermbg=none
 " highlight LineNr ctermbg=none
