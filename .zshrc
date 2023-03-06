@@ -1,6 +1,6 @@
 #####プラグインの設定#####
-fpath+=("~/.zsh/zsh-completions/src")  #zsh-completionを使う
-fpath+=("~/.zsh/pure") #themeでpureを使う
+fpath+=("$HOME/.zsh/zsh-completions/src")  #zsh-completionを使う
+fpath+=("$HOME/.zsh/pure") #themeでpureを使う
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh       # zsh-syntax-highlighting(プラグイン)
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh       #zsh-autosuggestionsを使うための設定
 ##########################
@@ -80,6 +80,11 @@ setopt hist_ignore_space       # 先頭にスペースのあるコマンドは�
 setopt hist_ignore_dups       # 直前と同じコマンドをヒストリに追加しない
 setopt hist_ignore_all_dups       # ヒストリに追加されるコマンドが古いものと同じなら古いものを削除
 function history-all { history -E 1 }       #history-all で全履歴を表示
+autoload -Uz history-search-end #historyの検索にbeginning searchを使う
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^p" history-beginning-search-backward-end
+bindkey "^n" history-beginning-search-forward-end
 
 # #環境変数TMUXでtmuxの利用の有無を判定し、利用している場合はパスの結合を行わない
 # if [[ -z $TMUX ]]; then
@@ -89,20 +94,25 @@ function history-all { history -E 1 }       #history-all で全履歴を表示
 #     export PATH=$HOME/local/bin:$PATH
 # fi
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/data2/matsuoka/tools/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/data2/matsuoka/tools/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/data2/matsuoka/tools/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/data2/matsuoka/tools/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# rust
+export RUSTUP_HOME=/usr/local/rust/.rustup
+export CARGO_HOME=/usr/local/rust/.cargo
+export PATH="/usr/local/rust/.cargo/bin:$PATH"
 
 ####Toolのpath####
 #python path

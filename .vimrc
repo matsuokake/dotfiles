@@ -1,3 +1,13 @@
+"=====vim plugの設定=====
+call plug#begin()
+Plug 'wojciechkepka/vim-github-dark'
+Plug 'cohama/lexima.vim'
+Plug 'lambdalisue/fern.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
+
 "===== 表示設定 =====
 set number "行番号の表示
 set title "編集中ファイル名の表示
@@ -43,17 +53,6 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "===== マウス設定 =====
 set mouse=a
 set ttymouse=xterm2
-
-
-"=====vim plugの設定=====
-call plug#begin()
-Plug 'wojciechkepka/vim-github-dark'
-Plug 'cohama/lexima.vim'
-Plug 'lambdalisue/fern.vim'
-Plug 'tomtom/tcomment_vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
 
 "=====fernの設定=====
 " Ctrl+nでファイルツリーを表示/非表示する
